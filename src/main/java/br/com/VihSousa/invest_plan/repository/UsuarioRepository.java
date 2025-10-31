@@ -1,5 +1,7 @@
 package br.com.VihSousa.invest_plan.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +14,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     // cria a query SQL: "SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false END FROM usuarios WHERE email = ?"
     boolean existsByEmail(String email);
 
-    Usuario findByEmail(String email);
+    Optional<Usuario> findByEmail(String email);
     
 
     
