@@ -41,7 +41,7 @@ public class Transacao {
     @Column(nullable = false, updatable = false)
     private LocalDateTime data;
 
-    // --- RELACIONAMENTOS ---
+    // ============ RELACIONAMENTOS ============
 
     @ManyToOne // Muitas transações para UM usuário.
     @JoinColumn(name = "usuario_id", nullable = false) // Cria a coluna de chave estrangeira 'usuario_id'

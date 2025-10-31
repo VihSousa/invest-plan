@@ -14,6 +14,8 @@ import lombok.Data;
 @Table(name = "categorias")
 public class Categoria {
 
+    //Apenas define a interface da entidade Categoria
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
