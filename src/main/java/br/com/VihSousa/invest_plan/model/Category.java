@@ -11,16 +11,16 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "categorias")
-public class Categoria {
+@Table(name = "categorys")
+public class Category {
 
-    //Apenas define a interface da entidade Categoria
+    // Just defines the Category entity interface
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String nome;
+    private String name;
 
 }

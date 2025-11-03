@@ -20,35 +20,35 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "transacoes")
-public class Transacao {
+@Table(name = "transactions")
+public class Transaction {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String descricao;
+    private String description;
 
     @Column(nullable = false)
-    private BigDecimal valor;
+    private BigDecimal value;
 
-    @Enumerated(EnumType.STRING) // Salva o texto do enum ("RECEITA") no banco, não o número.
+    @Enumerated(EnumType.STRING) // // Saves the enum name as text ("RECEITA"), not the default number (0, 1...)
     @Column(nullable = false)
-    private TipoTransacao tipo;
+    private TransactionType type;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
-    private LocalDateTime data;
+    private LocalDateTime date;
 
-    // ============ RELACIONAMENTOS ============
+    // ============================== RELATIONSHIPS ==============================
 
-    @ManyToOne // Muitas transações para UM usuário.
-    @JoinColumn(name = "usuario_id", nullable = false) // Cria a coluna de chave estrangeira 'usuario_id'
-    private Usuario usuario;
+    @ManyToOne // Many transactions to ONE user.
+    @JoinColumn(name = "user_id", nullable = false) // Defines the foreign key column as 'user_id'
+    private User user;
 
-    @ManyToOne // Muitas transações para UMA categoria.
-    @JoinColumn(name = "categoria_id", nullable = false) // Cria a coluna de chave estrangeira 'categoria_id'
-    private Categoria categoria;
+    @ManyToOne // Many transactions to ONE category.
+    @JoinColumn(name = "category_id", nullable = false) // Defines the foreign key column as 'category_id'
+    private Category category;
 
 }
