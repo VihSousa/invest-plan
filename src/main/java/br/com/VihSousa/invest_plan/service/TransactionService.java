@@ -47,17 +47,17 @@ public class TransactionService {
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found!"));
 
         // Update the user's balance.
-        BigDecimal value = dataOfTransaction.getValue();
+        BigDecimal amount = dataOfTransaction.getAmount();
         switch (dataOfTransaction.getType()) {
             case INCOME:
-                user.setBalance(user.getBalance().add(value));
+                user.setBalance(user.getBalance().add(amount));
                 break;
             case EXPENSE:
                 // Checks if the balance is sufficient before subtracting
-                if (user.getBalance().compareTo(value) < 0) {
+                if (user.getBalance().compareTo(amount) < 0) {
                     throw new InsufficientFundsException("Insufficient funds!");
                 }
-                user.setBalance(user.getBalance().subtract(value));
+                user.setBalance(user.getBalance().subtract(amount));
                 break;
         }
 

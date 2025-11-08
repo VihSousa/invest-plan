@@ -41,7 +41,7 @@ public class CategoryController {
         Category updatedCategory = categoryService.updateCategory(id, category);
         return ResponseEntity.ok(updatedCategory);
     }
-
+    
     @DeleteMapping("/{id}")
     // Does not need to return the deleted object, just a success status
     public ResponseEntity<Void> deleteCategory(
@@ -63,3 +63,4 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.findById(id));
     }
 }
+ 

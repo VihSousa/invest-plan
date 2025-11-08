@@ -31,7 +31,7 @@ public class Transaction {
     private String description;
 
     @Column(nullable = false)
-    private BigDecimal value;
+    private BigDecimal amount;
 
     @Enumerated(EnumType.STRING) // // Saves the enum name as text ("RECEITA"), not the default number (0, 1...)
     @Column(nullable = false)
