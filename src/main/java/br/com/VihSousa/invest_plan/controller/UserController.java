@@ -2,6 +2,7 @@ package br.com.VihSousa.invest_plan.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.VihSousa.invest_plan.service.UserService;
-import br.com.VihSousa.invest_plan.model.User;
+import br.com.VihSousa.invest_plan.dto.user.UserCreateDTO;
+import br.com.VihSousa.invest_plan.dto.user.UserResponseDTO;
+import br.com.VihSousa.invest_plan.dto.user.UserUpdateDTO;
+
+import jakarta.validation.Valid;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -25,18 +31,18 @@ public class UserController {
     // ============================== ENDPOINTS ============================== \\
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User savedUser = userService.createUser(user);
+    public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserCreateDTO userCreateDTO) {
+        UserResponseDTO savedUser = userService.createUser(userCreateDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(
+    public ResponseEntity<UserResponseDTO> updateUser(
         @PathVariable long id,
-        @RequestBody User user
+        @Valid @RequestBody UserUpdateDTO userUpdateDTO
     ) {
-        User updatedUser = userService.updatedUser(id, user);
+        UserResponseDTO updatedUser = userService.updateUser(id, userUpdateDTO);
         return ResponseEntity.ok(updatedUser);
     }
 
@@ -49,7 +55,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findUser(@PathVariable Long id) {
+    public ResponseEntity<UserResponseDTO> findUser(@PathVariable long id) {
         return ResponseEntity.ok(userService.findUserById(id));
     }
 

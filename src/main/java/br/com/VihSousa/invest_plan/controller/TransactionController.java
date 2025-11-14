@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.VihSousa.invest_plan.model.Transaction;
+import br.com.VihSousa.invest_plan.dto.transaction.TransactionCreateDTO;
+import br.com.VihSousa.invest_plan.dto.transaction.TransactionResponseDTO;
 import br.com.VihSousa.invest_plan.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user/{userId}/transactions")
+@RequestMapping("/users/{userId}/transactions")
 public class TransactionController {
 
     private final TransactionService transactionService;
@@ -26,18 +26,17 @@ public class TransactionController {
     // ============================== ENDPOINTS ============================== \\
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Transaction> createTransaction(
-            @PathVariable Long userId,
-            @RequestBody Transaction transaction
+    public ResponseEntity<TransactionResponseDTO> createTransaction(
+            @PathVariable long userId,
+            @RequestBody TransactionCreateDTO transactionCreateDTO
     ) {
-        Transaction savedTransaction = transactionService.registerTransaction(userId, transaction);
+        TransactionResponseDTO savedTransaction = transactionService.registerTransaction(userId, transactionCreateDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedTransaction);
     }
 
     @GetMapping
-    public ResponseEntity<List<Transaction>> getTransactionsByUserId(@PathVariable Long userId) {
-        List<Transaction> transactions = transactionService.findByUserId(userId);
+    public ResponseEntity<List<TransactionResponseDTO>> getTransactionsByUserId(@PathVariable long userId) {
+        List<TransactionResponseDTO> transactions = transactionService.findByUserId(userId);
         return ResponseEntity.ok(transactions);
     }
 
