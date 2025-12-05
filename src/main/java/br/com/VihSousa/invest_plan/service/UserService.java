@@ -34,6 +34,7 @@ public class UserService {
         User newUser = new User();
         newUser.setName(dto.name());
         newUser.setEmail(dto.email());
+        newUser.setPassword(dto.password()); ////// IN A REAL APP, HASH THE PASSWORD BEFORE SAVING! NÃO ESQUEÇA //////
 
         // Saving Entity
         User savedUser = userRepository.save(newUser);

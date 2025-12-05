@@ -1,0 +1,37 @@
+# Docker Compose version 3.8
+version: '3.8'
+
+# List all the "services" (containers) of our application here
+services:
+  
+  # Database service
+  db:
+    image: postgres # The image
+    container_name: finapi-db
+    environment:
+      POSTGRES_PASSWORD: docker
+    ports:
+      - "5432:5432" # port to your machine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Ensures data persistence
+
+  # The Spring Boot API service
+  api:
+    container_name: finapi-api
+    # Instead of a ready-made image, it builds the image
+    # from the "Dockerfile" that is in the same folder
+    build: . 
+    ports:
+      - "8080:8080" # Exposes the Spring Boot port
+    depends_on:
+      - db # Start the database before the API
+    environment:
+      # Pass the database URL to Spring Boot.
+      # Note that the host is not "localhost", but "db" (the name of the database service)
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: docker
+
+# Define a named volume to persist database data
+volumes:
+  postgres_data:

@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "categorys")
+@Table(name = "categories")
 public class Category {
 
     // Just defines the Category entity interface

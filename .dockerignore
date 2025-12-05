@@ -1,0 +1,29 @@
+# --- Build and Local Dependencies ---
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# --- Git and Version Control ---
+.git/
+.gitignore
+
+# --- IDEs and Editors ---
+.idea/
+.vscode/
+*.iml
+*.classpath
+*.project
+*.settings
+
+# --- OS Files (Windows/Mac Junk) ---
+.DS_Store
+Thumbs.db
+
+# --- Logs and Temporaries ---
+*.log
+*.tmp
+
+# --- Documentation and Docker Files ---
+Dockerfile
+docker-compose.yml
+README.md
+HELP.md
