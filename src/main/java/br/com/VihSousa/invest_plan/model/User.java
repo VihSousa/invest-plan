@@ -64,5 +64,4 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Transaction> transactions; // A list of transactions associated with the user
 
-
 }

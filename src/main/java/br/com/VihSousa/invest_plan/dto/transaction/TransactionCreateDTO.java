@@ -9,6 +9,9 @@ import jakarta.validation.constraints.Positive;
 
 public record TransactionCreateDTO (
 
+    @NotNull(message = "The category ID is required")
+    Long categoryId, // The client only needs to send the category ID
+
     @NotBlank(message = "Description cannot be blank")
     String description,
 
@@ -17,10 +20,7 @@ public record TransactionCreateDTO (
     BigDecimal amount,
 
     @NotNull(message = "The transaction type is required")
-    TransactionType type,
-
-    @NotNull(message = "The category ID is required")
-    Long categoryId // The client only needs to send the category ID
+    TransactionType type
     
 ) {}
 
