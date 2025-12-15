@@ -16,7 +16,7 @@ Este projeto foi construído utilizando as seguintes tecnologias e padrões:
 
 | Categoria                  | Tecnologias e Conceitos                                                                                                                                                  | 
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Linguagem & Framework**  | <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white"> <img src="https://img.shields.io/badge/Spring-6DB33F?logo=spring&logoColor=white">     |
+    | **Linguagem & Framework**  | <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white"> <img src="https://img.shields.io/badge/Spring-6DB33F?logo=spring&logoColor=white">     |
 | **Persistência de Dados**  | <img src="https://img.shields.io/badge/Hibernate-577399?logo=hibernate&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white"> <img src="https://img.shields.io/badge/JPA-E89438?logo=java&logoColor=white">                                        |
 | **API & Documentação**     | <img src="https://img.shields.io/badge/REST_API-7D479B?logo=json&logoColor=white"> <img src="https://img.shields.io/badge/Swagger-85EA2D?logo=swagger&logoColor=black">  |
 | **Ferramentas Auxiliares** | <img src="https://img.shields.io/badge/Maven-C71A36?logo=apachemaven&logoColor=white"> <img src="https://img.shields.io/badge/Lombok-6E20C1?logo=java&logoColor=white">  |
@@ -45,7 +45,7 @@ docker run --name finapi-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ./mvnw spring-boot:run
 ```
 
-A API estará disponível em http://localhost:8080.
+    A API estará disponível em http://localhost:8080.
 
 ### 📄 Documentação da API
 Após iniciar a aplicação, a documentação interativa da API (gerada pelo Swagger/OpenAPI) pode ser acessada em:
