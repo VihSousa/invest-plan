@@ -1,11 +1,12 @@
-package br.com.VihSousa.invest_plan.dto.transaction;
+package br.com.vihsousa.invest_plan.dto.transaction;
 
-import java.math.BigDecimal;
+import br.com.vihsousa.invest_plan.model.TransactionType;
 
-import br.com.VihSousa.invest_plan.model.TransactionType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+
+import java.math.BigDecimal;
 
 public record TransactionCreateDTO (
 

@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.dto.user;
+package br.com.vihsousa.invest_plan.dto.user;
 
 // DTO for sending user data in responses
 // What the application sends back to the user

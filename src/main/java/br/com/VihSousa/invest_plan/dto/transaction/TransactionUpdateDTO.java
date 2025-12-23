@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.dto.transaction;
+package br.com.vihsousa.invest_plan.dto.transaction;
 
 public record TransactionUpdateDTO (
 

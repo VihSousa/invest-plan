@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.config;
+package br.com.vihsousa.invest_plan.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.service.exception;
+package br.com.vihsousa.invest_plan.service.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

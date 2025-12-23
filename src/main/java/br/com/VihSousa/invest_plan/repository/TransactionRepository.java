@@ -1,11 +1,11 @@
-package br.com.VihSousa.invest_plan.repository;
+package br.com.vihsousa.invest_plan.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.VihSousa.invest_plan.model.Transaction;
+import br.com.vihsousa.invest_plan.model.Transaction;
 
 // Defines the repository interface
 // Responsible ONLY for saving, finding, updating, and deleting Transactions

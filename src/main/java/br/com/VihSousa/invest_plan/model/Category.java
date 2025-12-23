@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.model;
+package br.com.vihsousa.invest_plan.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;

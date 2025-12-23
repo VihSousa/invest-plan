@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.controller.exception;
+package br.com.vihsousa.invest_plan.controller.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

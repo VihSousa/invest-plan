@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.controller;
+package br.com.vihsousa.invest_plan.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -21,12 +21,15 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.VihSousa.invest_plan.dto.transaction.TransactionCreateDTO;
-import br.com.VihSousa.invest_plan.dto.transaction.TransactionResponseDTO;
-import br.com.VihSousa.invest_plan.model.TransactionType;
-import br.com.VihSousa.invest_plan.service.TransactionService;
-import br.com.VihSousa.invest_plan.service.exception.InsufficientFundsException;
-import br.com.VihSousa.invest_plan.service.exception.ResourceNotFoundException;
+import br.com.vihsousa.invest_plan.dto.transaction.TransactionCreateDTO;
+import br.com.vihsousa.invest_plan.dto.transaction.TransactionResponseDTO;
+import br.com.vihsousa.invest_plan.model.TransactionType;
+import br.com.vihsousa.invest_plan.service.TransactionService;
+import br.com.vihsousa.invest_plan.service.exception.InsufficientFundsException;
+import br.com.vihsousa.invest_plan.service.exception.ResourceNotFoundException;
+
+import br.com.vihsousa.invest_plan.service.TokenService;
+import br.com.vihsousa.invest_plan.repository.UserRepository;
 
 @WebMvcTest(TransactionController.class)
 @AutoConfigureMockMvc(addFilters = false)
@@ -40,6 +43,12 @@ class TransactionControllerTest {
 
     @MockBean
     private TransactionService transactionService;
+
+    @MockBean
+    private TokenService tokenService;
+
+    @MockBean
+    private UserRepository userRepository;
 
     // =========================================================================
     //                      SUCCESS PATH TESTS                       

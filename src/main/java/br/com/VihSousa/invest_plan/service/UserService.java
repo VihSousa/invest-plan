@@ -1,12 +1,12 @@
-package br.com.VihSousa.invest_plan.service;
+package br.com.vihsousa.invest_plan.service;
 
-import br.com.VihSousa.invest_plan.dto.user.UserCreateDTO;
-import br.com.VihSousa.invest_plan.dto.user.UserResponseDTO;
-import br.com.VihSousa.invest_plan.dto.user.UserUpdateDTO;
-import br.com.VihSousa.invest_plan.model.User;
-import br.com.VihSousa.invest_plan.repository.UserRepository;
-import br.com.VihSousa.invest_plan.service.exception.EmailAlreadyExistsException;
-import br.com.VihSousa.invest_plan.service.exception.ResourceNotFoundException;
+import br.com.vihsousa.invest_plan.dto.user.UserCreateDTO;
+import br.com.vihsousa.invest_plan.dto.user.UserResponseDTO;
+import br.com.vihsousa.invest_plan.dto.user.UserUpdateDTO;
+import br.com.vihsousa.invest_plan.model.User;
+import br.com.vihsousa.invest_plan.repository.UserRepository;
+import br.com.vihsousa.invest_plan.service.exception.EmailAlreadyExistsException;
+import br.com.vihsousa.invest_plan.service.exception.ResourceNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 

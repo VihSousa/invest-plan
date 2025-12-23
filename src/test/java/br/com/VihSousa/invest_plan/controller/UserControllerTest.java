@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.controller;
+package br.com.vihsousa.invest_plan.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -12,6 +12,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import br.com.vihsousa.invest_plan.repository.UserRepository;
+import br.com.vihsousa.invest_plan.service.TokenService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,12 +26,16 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.VihSousa.invest_plan.dto.user.UserCreateDTO;
-import br.com.VihSousa.invest_plan.dto.user.UserResponseDTO;
-import br.com.VihSousa.invest_plan.dto.user.UserUpdateDTO;
-import br.com.VihSousa.invest_plan.service.UserService;
-import br.com.VihSousa.invest_plan.service.exception.EmailAlreadyExistsException;
-import br.com.VihSousa.invest_plan.service.exception.ResourceNotFoundException;
+import br.com.vihsousa.invest_plan.dto.user.UserCreateDTO;
+import br.com.vihsousa.invest_plan.dto.user.UserResponseDTO;
+import br.com.vihsousa.invest_plan.dto.user.UserUpdateDTO;
+import br.com.vihsousa.invest_plan.service.UserService;
+import br.com.vihsousa.invest_plan.service.exception.EmailAlreadyExistsException;
+import br.com.vihsousa.invest_plan.service.exception.ResourceNotFoundException;
+
+import br.com.vihsousa.invest_plan.service.TokenService;
+import br.com.vihsousa.invest_plan.repository.UserRepository;
+
 
 @WebMvcTest(UserController.class) // Loads only the Web layer context for this Controller
 @AutoConfigureMockMvc(addFilters = false)
@@ -43,6 +49,12 @@ class UserControllerTest {
 
     @MockBean
     private UserService userService; // Service mock injected into the Controller
+
+    @MockBean
+    private TokenService tokenService;
+
+    @MockBean
+    private UserRepository userRepository;
 
     // =========================================================================
     //                      SUCCESS PATH TESTS                       
@@ -125,7 +137,8 @@ class UserControllerTest {
         UserCreateDTO request = new UserCreateDTO("Vih", "dup@email.com", "12345678");
 
         // Simulate the service by throwing the exception.
-        when(userService.createUser(any())).thenThrow(new EmailAlreadyExistsException("Email exists"));
+        when(userService.createUser(any(UserCreateDTO.class)))
+                .thenThrow(new EmailAlreadyExistsException("Email exists"));
 
         mockMvc.perform(post("/users")
                         .contentType(MediaType.APPLICATION_JSON)

@@ -1,9 +1,9 @@
-package br.com.VihSousa.invest_plan.dto.transaction;
+package br.com.vihsousa.invest_plan.dto.transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import br.com.VihSousa.invest_plan.model.TransactionType;
+import br.com.vihsousa.invest_plan.model.TransactionType;
 
 public record TransactionResponseDTO(
 

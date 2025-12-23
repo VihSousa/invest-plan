@@ -1,11 +1,11 @@
-package br.com.VihSousa.invest_plan.repository;
+package br.com.vihsousa.invest_plan.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.VihSousa.invest_plan.model.User;
+import br.com.vihsousa.invest_plan.model.User;
 
 @Repository // Indicates that this interface is a Spring repository
 public interface UserRepository extends JpaRepository<User, Long> {
@@ -14,7 +14,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByEmail(String email);
 
     Optional<User> findByEmail(String email);
-    
 
-    
 }

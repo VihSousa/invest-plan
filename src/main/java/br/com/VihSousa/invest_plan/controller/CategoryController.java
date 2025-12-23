@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.controller;
+package br.com.vihsousa.invest_plan.controller;
 
 import java.util.List; 
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.VihSousa.invest_plan.dto.category.CategoryCreateDTO;
-import br.com.VihSousa.invest_plan.dto.category.CategoryResponseDTO;
-import br.com.VihSousa.invest_plan.dto.category.CategoryUpdateDTO;
-import br.com.VihSousa.invest_plan.service.CategoryService;
+import br.com.vihsousa.invest_plan.dto.category.CategoryCreateDTO;
+import br.com.vihsousa.invest_plan.dto.category.CategoryResponseDTO;
+import br.com.vihsousa.invest_plan.dto.category.CategoryUpdateDTO;
+import br.com.vihsousa.invest_plan.service.CategoryService;
 
 import jakarta.validation.Valid;
 

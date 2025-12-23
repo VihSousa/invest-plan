@@ -1,34 +1,61 @@
-package br.com.VihSousa.invest_plan.config;
+package br.com.vihsousa.invest_plan.config;
+
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import static org.springframework.security.config.Customizer.withDefaults;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor // Injects the SecurityFilter automatically
 public class SecurityConfig {
+
+    private final SecurityFilter securityFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
+        return http
+                // Disable CSRF (not needed for JWT/Stateless)
+                .csrf(AbstractHttpConfigurer::disable)
 
-            // Disable CSRF protection
-            .csrf(csrf -> csrf.disable()) 
-            
-            // Config the authorization rules
-            .authorizeHttpRequests(auth -> auth
-                // Alows free access to Swagger (so you don't have to log in to see the doc)
-                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                // For any other request, requires login
-                .anyRequest().authenticated()
-            )
-            
-            // Enables basic login (that browser/postman popup)
-            .httpBasic(withDefaults());
+                // Set session management to stateless (API style)
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-        return http.build();
+                // Define authorization rules
+                .authorizeHttpRequests(authorize -> authorize
+                        // Allow login endpoint freely
+                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                        // Allow Swagger endpoints freely
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                        // Any other request requires authentication
+                        .anyRequest().authenticated()
+                )
+
+                // Add our custom filter BEFORE the standard filter
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
+    }
+
+    // Exposes the AuthenticationManager so AuthController can use it
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+
+    // Configures password encryption (BCrypt)
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

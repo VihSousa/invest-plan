@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.dto.user;
+package br.com.vihsousa.invest_plan.dto.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

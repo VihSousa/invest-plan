@@ -1,18 +1,18 @@
-package br.com.VihSousa.invest_plan.service;
+package br.com.vihsousa.invest_plan.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional; // Importante!
 
-import br.com.VihSousa.invest_plan.dto.transaction.TransactionCreateDTO;
-import br.com.VihSousa.invest_plan.dto.transaction.TransactionResponseDTO;
-import br.com.VihSousa.invest_plan.model.User;
-import br.com.VihSousa.invest_plan.model.Category;
-import br.com.VihSousa.invest_plan.model.Transaction;
-import br.com.VihSousa.invest_plan.repository.CategoryRepository;
-import br.com.VihSousa.invest_plan.repository.TransactionRepository;
-import br.com.VihSousa.invest_plan.repository.UserRepository;
-import br.com.VihSousa.invest_plan.service.exception.ResourceNotFoundException;
-import br.com.VihSousa.invest_plan.service.exception.InsufficientFundsException;
+import br.com.vihsousa.invest_plan.dto.transaction.TransactionCreateDTO;
+import br.com.vihsousa.invest_plan.dto.transaction.TransactionResponseDTO;
+import br.com.vihsousa.invest_plan.model.User;
+import br.com.vihsousa.invest_plan.model.Category;
+import br.com.vihsousa.invest_plan.model.Transaction;
+import br.com.vihsousa.invest_plan.repository.CategoryRepository;
+import br.com.vihsousa.invest_plan.repository.TransactionRepository;
+import br.com.vihsousa.invest_plan.repository.UserRepository;
+import br.com.vihsousa.invest_plan.service.exception.ResourceNotFoundException;
+import br.com.vihsousa.invest_plan.service.exception.InsufficientFundsException;
 
 import java.math.BigDecimal;
 import java.util.List;

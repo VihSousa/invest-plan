@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.service;
+package br.com.vihsousa.invest_plan.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -19,17 +19,17 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import br.com.VihSousa.invest_plan.dto.transaction.TransactionCreateDTO;
-import br.com.VihSousa.invest_plan.dto.transaction.TransactionResponseDTO;
-import br.com.VihSousa.invest_plan.model.Category;
-import br.com.VihSousa.invest_plan.model.Transaction;
-import br.com.VihSousa.invest_plan.model.TransactionType;
-import br.com.VihSousa.invest_plan.model.User;
-import br.com.VihSousa.invest_plan.repository.CategoryRepository;
-import br.com.VihSousa.invest_plan.repository.TransactionRepository;
-import br.com.VihSousa.invest_plan.repository.UserRepository;
-import br.com.VihSousa.invest_plan.service.exception.InsufficientFundsException;
-import br.com.VihSousa.invest_plan.service.exception.ResourceNotFoundException;
+import br.com.vihsousa.invest_plan.dto.transaction.TransactionCreateDTO;
+import br.com.vihsousa.invest_plan.dto.transaction.TransactionResponseDTO;
+import br.com.vihsousa.invest_plan.model.Category;
+import br.com.vihsousa.invest_plan.model.Transaction;
+import br.com.vihsousa.invest_plan.model.TransactionType;
+import br.com.vihsousa.invest_plan.model.User;
+import br.com.vihsousa.invest_plan.repository.CategoryRepository;
+import br.com.vihsousa.invest_plan.repository.TransactionRepository;
+import br.com.vihsousa.invest_plan.repository.UserRepository;
+import br.com.vihsousa.invest_plan.service.exception.InsufficientFundsException;
+import br.com.vihsousa.invest_plan.service.exception.ResourceNotFoundException;
 
 @ExtendWith(MockitoExtension.class)
 class TransactionServiceTest {

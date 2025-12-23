@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.controller;
+package br.com.vihsousa.invest_plan.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -22,11 +22,13 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.VihSousa.invest_plan.dto.category.CategoryCreateDTO;
-import br.com.VihSousa.invest_plan.dto.category.CategoryResponseDTO;
-import br.com.VihSousa.invest_plan.dto.category.CategoryUpdateDTO;
-import br.com.VihSousa.invest_plan.service.CategoryService;
-import br.com.VihSousa.invest_plan.service.exception.CategoryAlreadyExistsException;
+import br.com.vihsousa.invest_plan.dto.category.CategoryCreateDTO;
+import br.com.vihsousa.invest_plan.dto.category.CategoryResponseDTO;
+import br.com.vihsousa.invest_plan.dto.category.CategoryUpdateDTO;
+import br.com.vihsousa.invest_plan.service.CategoryService;
+import br.com.vihsousa.invest_plan.service.exception.CategoryAlreadyExistsException;
+import br.com.vihsousa.invest_plan.service.TokenService;
+import br.com.vihsousa.invest_plan.repository.UserRepository;
 
 @WebMvcTest(CategoryController.class)
 @AutoConfigureMockMvc(addFilters = false)
@@ -40,6 +42,12 @@ class CategoryControllerTest {
 
     @MockBean
     private CategoryService categoryService;
+
+    @MockBean
+    private TokenService tokenService;
+
+    @MockBean
+    private UserRepository userRepository;
 
     // =========================================================================
     //                      SUCCESS PATH TESTS                       

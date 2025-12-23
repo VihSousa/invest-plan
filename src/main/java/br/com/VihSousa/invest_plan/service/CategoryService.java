@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.service;
+package br.com.vihsousa.invest_plan.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,14 +6,14 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.VihSousa.invest_plan.dto.category.CategoryCreateDTO;
-import br.com.VihSousa.invest_plan.dto.category.CategoryResponseDTO;
-import br.com.VihSousa.invest_plan.dto.category.CategoryUpdateDTO;
+import br.com.vihsousa.invest_plan.dto.category.CategoryCreateDTO;
+import br.com.vihsousa.invest_plan.dto.category.CategoryResponseDTO;
+import br.com.vihsousa.invest_plan.dto.category.CategoryUpdateDTO;
 
-import br.com.VihSousa.invest_plan.model.Category;
-import br.com.VihSousa.invest_plan.repository.CategoryRepository;
-import br.com.VihSousa.invest_plan.service.exception.CategoryAlreadyExistsException;
-import br.com.VihSousa.invest_plan.service.exception.ResourceNotFoundException;
+import br.com.vihsousa.invest_plan.model.Category;
+import br.com.vihsousa.invest_plan.repository.CategoryRepository;
+import br.com.vihsousa.invest_plan.service.exception.CategoryAlreadyExistsException;
+import br.com.vihsousa.invest_plan.service.exception.ResourceNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 

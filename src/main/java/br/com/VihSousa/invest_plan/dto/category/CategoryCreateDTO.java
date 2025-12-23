@@ -1,4 +1,4 @@
-package br.com.VihSousa.invest_plan.dto.category;
+package br.com.vihsousa.invest_plan.dto.category;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
